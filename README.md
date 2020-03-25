@@ -5,6 +5,10 @@
 [![](https://img.shields.io/pub/v/mini_canvas#align=left&display=inline&height=20&originHeight=20&originWidth=76&status=done&style=none&width=76)](https://pub.flutter-io.cn/packages/mini_canvas) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/OpenFlutter/mini_canvas?style=plastic)
 
 
+### 导包
+```dart
+import 'package:mini_canvas/mini_canvas.dart';
+```
 
 ### 主要实现的内容
 
@@ -34,10 +38,6 @@ dependencies:
   mini_canvas: ^0.1.0
 ```
 
-### 导包
-```dart
-import 'package:mini_canvas/mini_canvas.dart';
-```
 
 
 > 更多功能clone项目，运行demo

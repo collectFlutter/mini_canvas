@@ -13,22 +13,22 @@ import 'package:mini_canvas/mini_canvas.dart';
 ### 主要实现的内容
 
 - 五角星
-![](res/五角星.jpg)
+![](res/five_star.jpg)
 
 - 仪表盘
-![](res/仪表盘.jpg)
+![](res/board.jpg)
 
 - 圆弧
-![](res/圆弧.jpg)
+![](res/arc.jpg)
 
 - 时钟
-![](res/时钟.gif)
+![](res/clock.gif)
 
 - 水波纹进度
-![](res/水波纹.gif)
+![](res/wave_progress.gif)
 
 - 自定义状态图
-![](res/状态图.jpg)
+![](res/state.jpg)
 
 ## 使用
 

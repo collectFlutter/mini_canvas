@@ -3,6 +3,7 @@
 *.log
 *.pyc
 *.swp
+pubspec.lock
 .DS_Store
 .atom/
 .buildlog/

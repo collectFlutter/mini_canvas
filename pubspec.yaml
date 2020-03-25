@@ -1,7 +1,6 @@
 name: mini_canvas
 description: Canvas completed widgets. Such as pentagram, dashboard, dial, etc.
-version: 0.1.0
-author: yshye<yshye2013@gmain.com>
+version: 0.1.1
 homepage: https://github.com/flutterme/mini_canvas
 
 environment:

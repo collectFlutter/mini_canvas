@@ -2,7 +2,7 @@
 
 利用Canvas绘制控件。
 
-[![](https://img.shields.io/pub/v/mini_canvas#align=left&display=inline&height=20&originHeight=20&originWidth=76&status=done&style=none&width=76)](https://pub.flutter-io.cn/packages/mini_canvas) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/flutterme/mini_canvas?style=plastic)
+[![](https://img.shields.io/pub/v/mini_canvas#align=left&display=inline&height=20&originHeight=20&originWidth=76&status=done&style=none&width=76)](https://pub.flutter-io.cn/packages/mini_canvas)  ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/flutterme/mini_canvas?style=flat-square)
 
 
 ### 导包

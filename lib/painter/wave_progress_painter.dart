@@ -23,9 +23,14 @@ class WaveProgressPainter extends CustomPainter {
   /// 下部文字
   final String subLabel;
 
-  WaveProgressPainter(this._animation, this._progress,
-      {this.label = '', this.subLabel = '', this.borderColor = Colors.blueAccent, this.fillColor = Colors.blueAccent,})
-      : super(repaint: _animation);
+  WaveProgressPainter(
+    this._animation,
+    this._progress, {
+    this.label = '',
+    this.subLabel = '',
+    this.borderColor = Colors.blueAccent,
+    this.fillColor = Colors.blueAccent,
+  }) : super(repaint: _animation);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -36,28 +41,30 @@ class WaveProgressPainter extends CustomPainter {
     canvas.translate(center.dx, center.dy);
 
     double _pDy = r - _progress * 0.02 * r;
-    Path path = Path()
-      ..lineTo(-r, r);
-    Path path2 = Path()
-      ..lineTo(-r, r);
+    Path path = Path()..lineTo(-r, r);
+    Path path2 = Path()..lineTo(-r, r);
     for (double i = -r; i <= r; i++) {
       path.lineTo(i, _pDy + 4 * sin(i * pi * 0.02 + _animation.value * 2 * pi));
-      path2.lineTo(i, _pDy + 4 * cos(i * pi * 0.02 + _animation.value * 2 * pi));
+      path2.lineTo(
+          i, _pDy + 4 * cos(i * pi * 0.02 + _animation.value * 2 * pi));
     }
     path
-      ..lineTo(r, r)..lineTo(-r, r)
+      ..lineTo(r, r)
+      ..lineTo(-r, r)
       ..close();
     path2
-      ..lineTo(r, r)..lineTo(-r, r)
+      ..lineTo(r, r)
+      ..lineTo(-r, r)
       ..close();
-    canvas.drawPath(path2, Paint()
-      ..color = fillColor.withOpacity(0.5));
-    canvas.drawPath(path, Paint()
-      ..color = fillColor);
+    canvas.drawPath(path2, Paint()..color = fillColor.withOpacity(0.5));
+    canvas.drawPath(path, Paint()..color = fillColor);
 
-    PainterUtil.paintString(canvas, Offset(0, -r * 0.3), label ?? '', fontSize: 8 * scale, color: Colors.grey[400]);
-    PainterUtil.paintString(canvas, Offset(0, 0), "${_progress.toInt()}%", fontSize: 14 * scale);
-    PainterUtil.paintString(canvas, Offset(0, r * 0.3), subLabel ?? '', fontSize: 8 * scale, color: Colors.grey[400]);
+    PainterUtil.paintString(canvas, Offset(0, -r * 0.3), label,
+        fontSize: 8 * scale, color: Colors.grey[400]!);
+    PainterUtil.paintString(canvas, Offset(0, 0), "${_progress.toInt()}%",
+        fontSize: 14 * scale);
+    PainterUtil.paintString(canvas, Offset(0, r * 0.3), subLabel,
+        fontSize: 8 * scale, color: Colors.grey[400]!);
     canvas.restore();
 
     // 绘制外圆

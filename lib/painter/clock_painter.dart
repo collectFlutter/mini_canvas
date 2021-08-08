@@ -11,10 +11,10 @@ class ClockPainter extends BasePainter {
   final Color borderColor;
   final DateTime datetime;
   final double radius;
-  double borderWidth;
+  late double borderWidth;
   List<Offset> secondsOffset = [];
-  TextPainter textPainter;
-  double angle;
+  late TextPainter textPainter;
+  late double angle;
 
   ClockPainter(this.datetime,
       {this.radius = 150.0,
@@ -29,14 +29,15 @@ class ClockPainter extends BasePainter {
     final secondDistance = radius - borderWidth * 2;
     for (var i = 0; i < 60; i++) {
       Offset offset = Offset(
-          cos(degToRad(6 * i - 90)) * secondDistance + radius, sin(degToRad(6 * i - 90)) * secondDistance + radius);
+          cos(degToRad(6 * i - 90)) * secondDistance + radius,
+          sin(degToRad(6 * i - 90)) * secondDistance + radius);
       secondsOffset.add(offset);
     }
     textPainter = TextPainter(
       textAlign: TextAlign.center,
       textDirection: TextDirection.rtl,
     );
-    angle = degToRad(360 / 60);
+    angle = degToRad(360 / 60).toDouble();
   }
 
   @override
@@ -48,7 +49,8 @@ class ClockPainter extends BasePainter {
       ..color = borderColor
       ..style = PaintingStyle.stroke
       ..strokeWidth = borderWidth;
-    canvas.drawCircle(Offset(radius, radius), radius - borderWidth / 2, borderPaint);
+    canvas.drawCircle(
+        Offset(radius, radius), radius - borderWidth / 2, borderPaint);
 
     //draw second point
     final secondPPaint = Paint()
@@ -70,14 +72,18 @@ class ClockPainter extends BasePainter {
           canvas.translate(0.0, -radius + borderWidth * 4);
           textPainter.text = TextSpan(
             text: "${(i ~/ 5) == 0 ? "12" : (i ~/ 5)}",
-            style: TextStyle(color: numberColor, fontFamily: 'Times  Roman', fontSize: 28.0 * scale),
+            style: TextStyle(
+                color: numberColor,
+                fontFamily: 'Times  Roman',
+                fontSize: 28.0 * scale),
           );
 
           //helps make the text painted vertically
           canvas.rotate(-angle * i);
 
           textPainter.layout();
-          textPainter.paint(canvas, Offset(-(textPainter.width / 2), -(textPainter.height / 2)));
+          textPainter.paint(canvas,
+              Offset(-(textPainter.width / 2), -(textPainter.height / 2)));
           canvas.restore();
         }
         canvas.rotate(angle);
@@ -94,9 +100,11 @@ class ClockPainter extends BasePainter {
     final second = datetime.second;
 
     // draw hour hand
-    Offset hourHand1 = Offset(radius - cos(degToRad(360 / 12 * hour - 90)) * (radius * 0.2),
+    Offset hourHand1 = Offset(
+        radius - cos(degToRad(360 / 12 * hour - 90)) * (radius * 0.2),
         radius - sin(degToRad(360 / 12 * hour - 90)) * (radius * 0.2));
-    Offset hourHand2 = Offset(radius + cos(degToRad(360 / 12 * hour - 90)) * (radius * 0.5),
+    Offset hourHand2 = Offset(
+        radius + cos(degToRad(360 / 12 * hour - 90)) * (radius * 0.5),
         radius + sin(degToRad(360 / 12 * hour - 90)) * (radius * 0.5));
     final hourPaint = Paint()
       ..color = handColor
@@ -104,20 +112,28 @@ class ClockPainter extends BasePainter {
     canvas.drawLine(hourHand1, hourHand2, hourPaint);
 
     // draw minute hand
-    Offset minuteHand1 = Offset(radius - cos(degToRad(360 / 60 * minute - 90)) * (radius * 0.3),
+    Offset minuteHand1 = Offset(
+        radius - cos(degToRad(360 / 60 * minute - 90)) * (radius * 0.3),
         radius - sin(degToRad(360 / 60 * minute - 90)) * (radius * 0.3));
-    Offset minuteHand2 = Offset(radius + cos(degToRad(360 / 60 * minute - 90)) * (radius - borderWidth * 3),
-        radius + sin(degToRad(360 / 60 * minute - 90)) * (radius - borderWidth * 3));
+    Offset minuteHand2 = Offset(
+        radius +
+            cos(degToRad(360 / 60 * minute - 90)) * (radius - borderWidth * 3),
+        radius +
+            sin(degToRad(360 / 60 * minute - 90)) * (radius - borderWidth * 3));
     final minutePaint = Paint()
       ..color = handColor
       ..strokeWidth = 3 * scale;
     canvas.drawLine(minuteHand1, minuteHand2, minutePaint);
 
     // draw second hand
-    Offset secondHand1 = Offset(radius - cos(degToRad(360 / 60 * second - 90)) * (radius * 0.3),
+    Offset secondHand1 = Offset(
+        radius - cos(degToRad(360 / 60 * second - 90)) * (radius * 0.3),
         radius - sin(degToRad(360 / 60 * second - 90)) * (radius * 0.3));
-    Offset secondHand2 = Offset(radius + cos(degToRad(360 / 60 * second - 90)) * (radius - borderWidth * 3),
-        radius + sin(degToRad(360 / 60 * second - 90)) * (radius - borderWidth * 3));
+    Offset secondHand2 = Offset(
+        radius +
+            cos(degToRad(360 / 60 * second - 90)) * (radius - borderWidth * 3),
+        radius +
+            sin(degToRad(360 / 60 * second - 90)) * (radius - borderWidth * 3));
     final secondPaint = Paint()
       ..color = handColor
       ..strokeWidth = 1 * scale;

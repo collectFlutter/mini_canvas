@@ -24,7 +24,11 @@ class DashBoardPainter extends CustomPainter {
   final double angle = 24;
 
   DashBoardPainter(
-      {this.value = 0, this.rightColor = Colors.pink, this.leftColor = Colors.blue, this.strokeWidth = 1, this.label = '指标名称'});
+      {this.value = 0,
+      this.rightColor = Colors.pink,
+      this.leftColor = Colors.blue,
+      this.strokeWidth = 1,
+      this.label = '指标名称'});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -35,23 +39,32 @@ class DashBoardPainter extends CustomPainter {
     canvas.save();
     canvas.translate(center.dx, center.dy);
     PainterUtil.paintArc(canvas, Offset(0, 0), radius,
-        startAngle: 150, sweepAngle: 240, color: Colors.grey, strokeWidth: strokeWidth);
+        startAngle: 150,
+        sweepAngle: 240,
+        color: Colors.grey,
+        strokeWidth: strokeWidth);
     int index = 0;
     while (true) {
-      endColor = Color.lerp(leftColor, rightColor, index * 0.01);
+      endColor = Color.lerp(leftColor, rightColor, index * 0.01) ?? rightColor;
       double startAngle = 150 + index * 2.4;
       double sweepAngle = min(2.4, 2.40 * value - index * 2.4);
       PainterUtil.paintArc(canvas, Offset(0, 0), radius,
-          startAngle: startAngle, sweepAngle: sweepAngle, color: endColor, strokeWidth: strokeWidth);
+          startAngle: startAngle,
+          sweepAngle: sweepAngle,
+          color: endColor,
+          strokeWidth: strokeWidth);
       if (index > value || ++index == 100) {
         break;
       }
     }
     // 绘制圆点
-    PainterUtil.paintArc(canvas, Offset(0, 0), 4 * scale, color: endColor, strokeWidth: 2 * scale);
+    PainterUtil.paintArc(canvas, Offset(0, 0), 4 * scale,
+        color: endColor, strokeWidth: 2 * scale);
     // 绘制指针
     PainterUtil.paintLine(canvas, 4 * scale, radius - strokeWidth - 20 * scale,
-        strokeWidth: 2 * scale, color: endColor, rotateAngle: angle * value > 2400 ? 395 : angle * value * 0.1 + 150);
+        strokeWidth: 2 * scale,
+        color: endColor,
+        rotateAngle: angle * value > 2400 ? 395 : angle * value * 0.1 + 150);
 
     // 绘制刻度
     List.generate(11, (index) {
@@ -62,13 +75,17 @@ class DashBoardPainter extends CustomPainter {
             (radius - strokeWidth * 0.5) * sin((150 + angle * index) * rad),
           ),
           1,
-          color: index <= value * 0.1 ? Color.lerp(leftColor, rightColor, index * 0.1) : Colors.grey,
+          color: index <= value * 0.1
+              ? (Color.lerp(leftColor, rightColor, index * 0.1) ?? leftColor)
+              : Colors.grey,
           strokeWidth: scale);
       PainterUtil.paintString(
           canvas,
           Offset(
-            (radius - strokeWidth - 5 * scale) * cos((150 + angle * index) * rad),
-            (radius - strokeWidth - 5 * scale) * sin((150 + angle * index) * rad),
+            (radius - strokeWidth - 5 * scale) *
+                cos((150 + angle * index) * rad),
+            (radius - strokeWidth - 5 * scale) *
+                sin((150 + angle * index) * rad),
           ),
           "$index",
           color: Colors.black,
@@ -76,10 +93,12 @@ class DashBoardPainter extends CustomPainter {
     });
 
     /// 绘制标签
-    PainterUtil.paintString(canvas, Offset(0, radius * 0.3), label, color: Colors.grey, fontSize: 14.0 * scale);
+    PainterUtil.paintString(canvas, Offset(0, radius * 0.3), label,
+        color: Colors.grey, fontSize: 14.0 * scale);
 
     /// 绘制百分比文字
-    PainterUtil.paintString(canvas, Offset(0, radius * 0.6), "${value.toStringAsFixed(2)}%",
+    PainterUtil.paintString(
+        canvas, Offset(0, radius * 0.6), "${value.toStringAsFixed(2)}%",
         color: Colors.black, fontSize: 22.0 * scale);
     canvas.restore();
   }

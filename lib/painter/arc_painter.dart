@@ -41,12 +41,19 @@ class ArcPainter extends CustomPainter {
     Offset _center = Offset(size.width * 0.5, size.height * 0.5);
     double _radius = min(size.width, size.height) * 0.5 - strokeWidth * 0.5;
     final scale = _radius / 75;
-    PainterUtil.paintArc(canvas, _center, _radius, color: borderColor, strokeWidth: strokeWidth);
+    PainterUtil.paintArc(canvas, _center, _radius,
+        color: borderColor, strokeWidth: strokeWidth);
 
     PainterUtil.paintArc(canvas, _center, _radius,
-        startAngle: startAngle, sweepAngle: sweepAngle, color: color, strokeWidth: strokeWidth);
-    PainterUtil.paintString(canvas, Offset(size.width * 0.5, size.height * 0.5 * 1.15), middleLabel, fontSize: 16 * scale);
-    PainterUtil.paintString(canvas, Offset(size.width * 0.5, size.height * 0.5 * 0.85), aboveLabel,
+        startAngle: startAngle,
+        sweepAngle: sweepAngle,
+        color: color,
+        strokeWidth: strokeWidth);
+    PainterUtil.paintString(
+        canvas, Offset(size.width * 0.5, size.height * 0.5 * 1.15), middleLabel,
+        fontSize: 16 * scale);
+    PainterUtil.paintString(
+        canvas, Offset(size.width * 0.5, size.height * 0.5 * 0.85), aboveLabel,
         fontSize: 12 * scale, color: Colors.grey);
   }
 

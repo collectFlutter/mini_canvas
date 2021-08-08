@@ -84,15 +84,21 @@ class PainterUtil {
     Color color = Colors.black,
     double rotateAngle = 0,
   }) {
-    TextPainter textPainter = TextPainter(textAlign: TextAlign.center, textDirection: TextDirection.rtl);
+    TextPainter textPainter = TextPainter(
+        textAlign: TextAlign.center, textDirection: TextDirection.rtl);
 
     // 绘制标题
-    textPainter.text =
-        TextSpan(text: text, style: TextStyle(color: color, fontFamily: 'Times New Roman', fontSize: fontSize));
+    textPainter.text = TextSpan(
+        text: text,
+        style: TextStyle(
+            color: color, fontFamily: 'Times New Roman', fontSize: fontSize));
     textPainter.layout();
     canvas.save();
     canvas.rotate(-rotateAngle);
-    textPainter.paint(canvas, Offset(point.dx - textPainter.width * 0.5, point.dy - textPainter.height * 0.5));
+    textPainter.paint(
+        canvas,
+        Offset(point.dx - textPainter.width * 0.5,
+            point.dy - textPainter.height * 0.5));
     canvas.restore();
   }
 
@@ -125,5 +131,4 @@ class PainterUtil {
         ..style = PaintingStyle.stroke,
     );
   }
-
 }

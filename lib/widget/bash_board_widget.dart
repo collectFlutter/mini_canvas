@@ -22,13 +22,21 @@ class BashBoardWidget extends BaseWidget {
       this.label = '',
       Color color = Colors.transparent,
       double strokeWidth = 10.0})
-      : super(color: color, width: diameter, height: diameter, strokeWidth: strokeWidth);
+      : super(
+            color: color,
+            width: diameter,
+            height: diameter,
+            strokeWidth: strokeWidth);
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
       size: Size(diameter, diameter),
       painter: DashBoardPainter(
-          leftColor: color, strokeWidth: strokeWidth, label: label, value: value, rightColor: rightColor),
+          leftColor: color,
+          strokeWidth: strokeWidth,
+          label: label,
+          value: value,
+          rightColor: rightColor),
     );
   }
 }

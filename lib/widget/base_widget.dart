@@ -17,7 +17,7 @@ abstract class BaseWidget extends StatelessWidget {
   final double strokeWidth;
 
   const BaseWidget(
-      {Key key,
+      {Key? key,
       this.color = Colors.blue,
       this.rotateAngle = 0.0,
       this.height = 50,

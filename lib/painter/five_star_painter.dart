@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import '../utils/painter_util.dart';
 
-
 /// 绘制五角星
 class FiveStarPainter extends CustomPainter {
   /// 颜色

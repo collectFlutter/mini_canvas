@@ -16,11 +16,14 @@ abstract class BasePainter extends CustomPainter {
   final double rad = pi / 180.0;
 
   // 画笔
-  Paint customPaint;
+  late Paint customPaint;
 
-  BasePainter(
-      {this.color, this.rotateAngle, this.strokeWidth = 1, Listenable repaint})
-      : super(repaint: repaint) {
+  BasePainter({
+    this.color = Colors.black,
+    this.rotateAngle = 0.0,
+    this.strokeWidth = 1,
+    Listenable? repaint,
+  }) : super(repaint: repaint) {
     customPaint = Paint()
       ..color = color
       ..strokeWidth = strokeWidth

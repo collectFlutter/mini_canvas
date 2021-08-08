@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../painter/wave_progress_painter.dart';
 import '../clipper/circle_clipper.dart';
@@ -9,10 +8,10 @@ class WaveProgress extends StatefulWidget {
   final double progress;
 
   /// 显示标签
-  final String label;
+  final String? label;
 
   /// 下部文字
-  final String subLabel;
+  final String? subLabel;
 
   WaveProgress(
     this.size,
@@ -27,13 +26,15 @@ class WaveProgress extends StatefulWidget {
   WaveProgressState createState() => WaveProgressState();
 }
 
-class WaveProgressState extends State<WaveProgress> with TickerProviderStateMixin {
-  AnimationController controller;
+class WaveProgressState extends State<WaveProgress>
+    with TickerProviderStateMixin {
+  late AnimationController controller;
 
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(vsync: this, duration: Duration(milliseconds: 2500));
+    controller = AnimationController(
+        vsync: this, duration: Duration(milliseconds: 2500));
     controller.repeat();
   }
 
@@ -46,8 +47,8 @@ class WaveProgressState extends State<WaveProgress> with TickerProviderStateMixi
         painter: WaveProgressPainter(
           controller,
           widget.progress,
-          label: widget.label,
-          subLabel: widget.subLabel,
+          label: widget.label ?? '',
+          subLabel: widget.subLabel ?? '',
           borderColor: widget.borderColor,
           fillColor: widget.fillColor,
         ),

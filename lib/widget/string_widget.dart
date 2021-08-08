@@ -3,7 +3,6 @@ import '../enums/vertical_align.dart';
 import '../painter/string_painter.dart';
 import 'base_widget.dart';
 
-
 class StringWidget extends BaseWidget {
   final String text;
   final double fontSize;

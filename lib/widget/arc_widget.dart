@@ -18,10 +18,10 @@ class ArcWidget extends BaseWidget {
   final Color borderColor;
 
   /// 中部的文字
-  final String middleLabel;
+  final String? middleLabel;
 
   /// 上部的文字
-  final String aboveLabel;
+  final String? aboveLabel;
 
   /// [diameter] - 直径 <br/>
   /// [startAngle] - 开始角度 <br/>
@@ -36,7 +36,11 @@ class ArcWidget extends BaseWidget {
       this.aboveLabel,
       Color color = Colors.blue,
       double strokeWidth = 1.0})
-      : super(color: color, width: diameter, height: diameter, strokeWidth: strokeWidth);
+      : super(
+            color: color,
+            width: diameter,
+            height: diameter,
+            strokeWidth: strokeWidth);
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +52,8 @@ class ArcWidget extends BaseWidget {
         sweepAngle: sweepAngle,
         strokeWidth: strokeWidth,
         borderColor: borderColor,
-        middleLabel: middleLabel,
-        aboveLabel: aboveLabel,
+        middleLabel: middleLabel ?? '',
+        aboveLabel: aboveLabel ?? '',
       ),
     );
   }

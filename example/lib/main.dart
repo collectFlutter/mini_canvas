@@ -69,7 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             BashBoardWidget(100, strokeWidth: 8, label: '收缴率', value: 68.23),
             BashBoardWidget(300, strokeWidth: 10, label: '出勤率', value: 100),
-            BashBoardWidget(MediaQuery.of(context).size.width, strokeWidth: 20, label: '出租率', value: 35.33),
+            BashBoardWidget(MediaQuery.of(context).size.width,
+                strokeWidth: 20, label: '出租率', value: 35.33),
           ],
         )));
   }
@@ -192,14 +193,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   strokeWidth: 15,
                   borderColor: Colors.grey[200]),
               ArcWidget(100,
-                  startAngle: 0.0, sweepAngle: 90.0, color: Colors.red, strokeWidth: 15, borderColor: Colors.grey[200]),
+                  startAngle: 0.0,
+                  sweepAngle: 90.0,
+                  color: Colors.red,
+                  strokeWidth: 15,
+                  borderColor: Colors.grey[200]),
               ArcWidget(200,
                   startAngle: 270.0,
                   sweepAngle: 90.0,
                   color: Colors.red,
                   strokeWidth: 15,
                   borderColor: Colors.grey[200]),
-              ArcWidget(300, startAngle: 0.0, sweepAngle: 360.0, color: Colors.red, strokeWidth: 10),
+              ArcWidget(300,
+                  startAngle: 0.0,
+                  sweepAngle: 360.0,
+                  color: Colors.red,
+                  strokeWidth: 10),
               ArcWidget(50, color: Colors.red),
               ArcWidget(50, startAngle: 0.0, sweepAngle: 90.0),
               ArcWidget(50, startAngle: 0.0, sweepAngle: 180.0),
@@ -212,5 +221,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ListTile(title: Text(title ?? ''), onTap: () => gotoPage(widget, title));
 
   void gotoPage(Widget widget, String title) => Navigator.push(
-      context, MaterialPageRoute(builder: (ctx) => Scaffold(appBar: AppBar(title: Text(title ?? '')), body: widget)));
+      context,
+      MaterialPageRoute(
+          builder: (ctx) => Scaffold(
+              appBar: AppBar(title: Text(title ?? '')), body: widget)));
 }

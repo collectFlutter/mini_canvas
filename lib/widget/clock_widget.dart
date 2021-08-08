@@ -26,22 +26,24 @@ class ClockWidget extends BaseWidget {
     double strokeWidth = 1.0,
     double width = 100,
     double height = 100,
-  }) : super(color: color, width: width, height: height, strokeWidth: strokeWidth);
+  }) : super(
+            color: color,
+            width: width,
+            height: height,
+            strokeWidth: strokeWidth);
 
   @override
   Widget build(BuildContext context) {
-    double radius = min(width,height) * 0.5;
+    double radius = min(width, height) * 0.5;
     return CustomPaint(
       size: Size(width, width),
-      painter: ClockPainter(
-        datetime,
-        radius: radius,
-        handColor: handColor,
-        numberColor: numberColor,
-        borderColor: borderColor,
-        color: color,
-        strokeWidth: strokeWidth
-      ),
+      painter: ClockPainter(datetime,
+          radius: radius,
+          handColor: handColor,
+          numberColor: numberColor,
+          borderColor: borderColor,
+          color: color,
+          strokeWidth: strokeWidth),
     );
   }
 }

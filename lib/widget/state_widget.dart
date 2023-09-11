@@ -14,9 +14,10 @@ class StateWidget extends BaseWidget {
   StateWidget(
     this.label, {
     this.fontSize = 12,
-    Color color = Colors.grey,
+    super.color = Colors.grey,
     double size = 100,
-  }) : super(width: size, height: size, color: color);
+    super.key,
+  }) : super(width: size, height: size);
 
   @override
   Widget build(BuildContext context) {

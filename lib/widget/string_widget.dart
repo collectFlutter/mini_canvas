@@ -17,15 +17,17 @@ class StringWidget extends BaseWidget {
   final TextAlign horizontalTextAlign;
 
   /// [rotateAngle] - 居中旋转
-  StringWidget(this.text,
-      {this.verticalAlign = VerticalAlign.center,
-      this.horizontalTextAlign = TextAlign.center,
-      this.fontSize = 12,
-      this.rotateAngle = 0.0,
-      Color color = Colors.black,
-      double width = 50,
-      double height = 50})
-      : super(color: color, width: width, height: height);
+  StringWidget(
+    this.text, {
+    this.verticalAlign = VerticalAlign.center,
+    this.horizontalTextAlign = TextAlign.center,
+    this.fontSize = 12,
+    this.rotateAngle = 0.0,
+    super.color = Colors.black,
+    super.width = 50,
+    super.height = 50,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

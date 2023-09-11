@@ -28,19 +28,17 @@ class ArcWidget extends BaseWidget {
   /// [sweepAngle] - 间隔角度 <br/>
   /// [color] - 颜色 <br/>
   /// [strokeWidth] - 画笔粗细
-  ArcWidget(this.diameter,
-      {this.startAngle = 0.0,
-      this.borderColor = Colors.grey,
-      this.sweepAngle = 360.0,
-      this.middleLabel,
-      this.aboveLabel,
-      Color color = Colors.blue,
-      double strokeWidth = 1.0})
-      : super(
-            color: color,
-            width: diameter,
-            height: diameter,
-            strokeWidth: strokeWidth);
+  ArcWidget(
+    this.diameter, {
+    this.startAngle = 0.0,
+    this.borderColor = Colors.grey,
+    this.sweepAngle = 360.0,
+    this.middleLabel,
+    this.aboveLabel,
+    super.color = Colors.blue,
+    super.strokeWidth = 1.0,
+    super.key,
+  }) : super(width: diameter, height: diameter);
 
   @override
   Widget build(BuildContext context) {

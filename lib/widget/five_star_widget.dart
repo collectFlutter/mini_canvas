@@ -13,16 +13,13 @@ class FiveStarWidget extends BaseWidget {
   /// [rotateAngle] - 旋转角度<br/>
   /// [strokeWidth] - 画笔粗细
   /// [strokeWidth] - 画笔粗细
-  FiveStarWidget(this.diameter,
-      {Color color = Colors.red,
-      double rotateAngle = 0.0,
-      double strokeWidth = 1.0})
-      : super(
-            color: color,
-            rotateAngle: rotateAngle,
-            width: diameter,
-            height: diameter,
-            strokeWidth: strokeWidth);
+  FiveStarWidget(
+    this.diameter, {
+    super.color = Colors.red,
+    super.rotateAngle = 0.0,
+    super.strokeWidth = 1.0,
+    super.key,
+  }) : super(width: diameter, height: diameter);
 
   @override
   Widget build(BuildContext context) {

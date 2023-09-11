@@ -16,6 +16,7 @@ class WaveProgress extends StatefulWidget {
   WaveProgress(
     this.size,
     this.progress, {
+    super.key,
     this.borderColor = Colors.blueAccent,
     this.fillColor = Colors.blueAccent,
     this.label,

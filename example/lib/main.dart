@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'time_clock_page.dart';
@@ -19,6 +18,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Widget> items = [];
+
   @override
   Widget build(BuildContext context) {
     items.clear();
@@ -191,19 +191,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   sweepAngle: 300.0,
                   color: Colors.red,
                   strokeWidth: 15,
-                  borderColor: Colors.grey[200]),
+                  borderColor: Colors.grey[200]!),
               ArcWidget(100,
                   startAngle: 0.0,
                   sweepAngle: 90.0,
                   color: Colors.red,
                   strokeWidth: 15,
-                  borderColor: Colors.grey[200]),
+                  borderColor: Colors.grey[200]!),
               ArcWidget(200,
                   startAngle: 270.0,
                   sweepAngle: 90.0,
                   color: Colors.red,
                   strokeWidth: 15,
-                  borderColor: Colors.grey[200]),
+                  borderColor: Colors.grey[200]!),
               ArcWidget(300,
                   startAngle: 0.0,
                   sweepAngle: 360.0,
@@ -218,11 +218,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildItem(String title, Widget widget) =>
-      ListTile(title: Text(title ?? ''), onTap: () => gotoPage(widget, title));
+      ListTile(title: Text(title), onTap: () => gotoPage(widget, title));
 
   void gotoPage(Widget widget, String title) => Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (ctx) => Scaffold(
-              appBar: AppBar(title: Text(title ?? '')), body: widget)));
+          builder: (ctx) =>
+              Scaffold(appBar: AppBar(title: Text(title)), body: widget)));
 }

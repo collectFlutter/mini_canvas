@@ -22,15 +22,12 @@ class ClockWidget extends BaseWidget {
     this.handColor = Colors.black,
     this.numberColor = Colors.black,
     this.borderColor = Colors.black,
-    Color color = Colors.blue,
-    double strokeWidth = 1.0,
-    double width = 100,
-    double height = 100,
-  }) : super(
-            color: color,
-            width: width,
-            height: height,
-            strokeWidth: strokeWidth);
+    super.color = Colors.blue,
+    super.strokeWidth = 1.0,
+    super.width = 100,
+    super.height = 100,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

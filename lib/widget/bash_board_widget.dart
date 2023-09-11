@@ -16,17 +16,16 @@ class BashBoardWidget extends BaseWidget {
   ///右侧颜色值
   final Color rightColor;
 
-  BashBoardWidget(this.diameter,
-      {this.value = 0.0,
-      this.rightColor = Colors.blueAccent,
-      this.label = '',
-      Color color = Colors.transparent,
-      double strokeWidth = 10.0})
-      : super(
-            color: color,
-            width: diameter,
-            height: diameter,
-            strokeWidth: strokeWidth);
+  BashBoardWidget(
+    this.diameter, {
+    this.value = 0.0,
+    this.rightColor = Colors.blueAccent,
+    this.label = '',
+    super.color = Colors.transparent,
+    super.strokeWidth = 10.0,
+    super.key,
+  }) : super(width: diameter, height: diameter);
+
   @override
   Widget build(BuildContext context) {
     return CustomPaint(

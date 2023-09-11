@@ -21,9 +21,8 @@ class ClockPainter extends BasePainter {
       this.handColor = Colors.black,
       this.numberColor = Colors.black,
       this.borderColor = Colors.black,
-      Color color = Colors.red,
-      double strokeWidth = 1.0})
-      : super(color: color, strokeWidth: strokeWidth) {
+      super.color = Colors.red,
+      super.strokeWidth = 1.0}) {
     borderWidth = radius / 14;
 
     final secondDistance = radius - borderWidth * 2;
@@ -78,7 +77,6 @@ class ClockPainter extends BasePainter {
                 fontSize: 28.0 * scale),
           );
 
-          //helps make the text painted vertically
           canvas.rotate(-angle * i);
 
           textPainter.layout();

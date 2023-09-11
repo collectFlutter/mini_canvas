@@ -12,10 +12,10 @@ abstract class BasePainter extends CustomPainter {
   /// 画笔宽度
   final double strokeWidth;
 
-  // 1度对应的弧度
+  /// 1度对应的弧度
   final double rad = pi / 180.0;
 
-  // 画笔
+  /// 画笔
   late Paint customPaint;
 
   BasePainter({

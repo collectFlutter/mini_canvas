@@ -14,13 +14,14 @@ class StringPainter extends BasePainter {
   /// 上下对齐方式
   final VerticalAlign verticalTextAlign;
 
-  StringPainter(this.text,
-      {this.horizontalTextAlign = TextAlign.center,
-      this.verticalTextAlign = VerticalAlign.center,
-      this.fontSize = 12,
-      Color color = Colors.black,
-      double rotateAngle = 0.0})
-      : super(color: color, rotateAngle: rotateAngle);
+  StringPainter(
+    this.text, {
+    super.color = Colors.black,
+    super.rotateAngle = 0.0,
+    this.horizontalTextAlign = TextAlign.center,
+    this.verticalTextAlign = VerticalAlign.center,
+    this.fontSize = 12,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {

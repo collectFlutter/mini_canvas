@@ -9,8 +9,9 @@ class TimeClockPage extends StatefulWidget {
 }
 
 class _TimeClockPageState extends State<TimeClockPage> {
-  DateTime datetime;
-  Timer timer;
+  late DateTime datetime;
+  late Timer timer;
+
   @override
   void initState() {
     super.initState();

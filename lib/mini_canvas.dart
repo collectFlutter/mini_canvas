@@ -10,5 +10,3 @@ export 'src/widgets/point_widget.dart';
 export 'src/widgets/state_widget.dart';
 export 'src/widgets/string_widget.dart';
 export 'src/widgets/wave_progress.dart';
-
-

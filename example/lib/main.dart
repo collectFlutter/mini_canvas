@@ -59,10 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
               label: '进度',
             ),
             WaveProgress(
-              MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              MediaQuery.of(context).size.width,
               70,
               label: '出勤率',
             ),
@@ -79,10 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 strokeWidth: 8, label: '收缴率', value: 68.23),
             const BashBoardWidget(300,
                 strokeWidth: 10, label: '出勤率', value: 100),
-            BashBoardWidget(MediaQuery
-                .of(context)
-                .size
-                .width,
+            BashBoardWidget(MediaQuery.of(context).size.width,
                 strokeWidth: 20, label: '出租率', value: 35.33),
           ],
         )));
@@ -230,10 +224,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildItem(String title, Widget widget) =>
       ListTile(title: Text(title), onTap: () => gotoPage(widget, title));
 
-  void gotoPage(Widget widget, String title) =>
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (ctx) =>
-                  Scaffold(appBar: AppBar(title: Text(title)), body: widget)));
+  void gotoPage(Widget widget, String title) => Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (ctx) =>
+              Scaffold(appBar: AppBar(title: Text(title)), body: widget)));
 }

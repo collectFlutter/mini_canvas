@@ -2,18 +2,23 @@ import 'package:flutter/material.dart';
 
 import 'time_clock_page.dart';
 
+// ignore: depend_on_referenced_packages
 import 'package:mini_canvas/mini_canvas.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
-  Widget build(BuildContext context) => MaterialApp(home: MyHomePage());
+  Widget build(BuildContext context) => const MaterialApp(home: MyHomePage());
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -30,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
     initStateWidgets();
     initStringWidget();
     return Scaffold(
-        appBar: AppBar(title: Text("MiniCanvas 测试页面")),
+        appBar: AppBar(title: const Text("MiniCanvas 测试页面")),
         backgroundColor: Colors.grey[300],
         body: SingleChildScrollView(
           child: Column(children: items),
@@ -42,19 +47,22 @@ class _MyHomePageState extends State<MyHomePage> {
         "波浪进度",
         ListView(
           children: <Widget>[
-            WaveProgress(
+            const WaveProgress(
               100,
               20,
               label: '空置面积剩余',
               subLabel: '5000㎡',
             ),
-            WaveProgress(
+            const WaveProgress(
               300,
               20,
               label: '进度',
             ),
             WaveProgress(
-              MediaQuery.of(context).size.width,
+              MediaQuery
+                  .of(context)
+                  .size
+                  .width,
               70,
               label: '出勤率',
             ),
@@ -67,22 +75,27 @@ class _MyHomePageState extends State<MyHomePage> {
         "仪表盘",
         ListView(
           children: <Widget>[
-            BashBoardWidget(100, strokeWidth: 8, label: '收缴率', value: 68.23),
-            BashBoardWidget(300, strokeWidth: 10, label: '出勤率', value: 100),
-            BashBoardWidget(MediaQuery.of(context).size.width,
+            const BashBoardWidget(100,
+                strokeWidth: 8, label: '收缴率', value: 68.23),
+            const BashBoardWidget(300,
+                strokeWidth: 10, label: '出勤率', value: 100),
+            BashBoardWidget(MediaQuery
+                .of(context)
+                .size
+                .width,
                 strokeWidth: 20, label: '出租率', value: 35.33),
           ],
         )));
   }
 
   void initClockWidget() {
-    items.add(_buildItem("时钟", TimeClockPage()));
+    items.add(_buildItem("时钟", const TimeClockPage()));
   }
 
   void initStringWidget() {
     items.add(_buildItem(
         "旋转字符串",
-        Stack(
+        const Stack(
           children: <Widget>[
             StringWidget(
               "↖",
@@ -152,77 +165,75 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void initStateWidgets() {
-    items
-      ..add(_buildItem(
-          "状态图标",
-          Wrap(
-            children: <Widget>[
-              StateWidget("进行中", color: Colors.blue, size: 60),
-              StateWidget("已删除", color: Colors.red, size: 100, fontSize: 18),
-              StateWidget("已完成", color: Colors.green, size: 180, fontSize: 38)
-            ],
-          )));
+    items.add(_buildItem(
+        "状态图标",
+        const Wrap(
+          children: <Widget>[
+            StateWidget("进行中", color: Colors.blue, size: 60),
+            StateWidget("已删除", color: Colors.red, size: 100, fontSize: 18),
+            StateWidget("已完成", color: Colors.green, size: 180, fontSize: 38)
+          ],
+        )));
   }
 
   void initFiveWidgets() {
-    items
-      ..add(_buildItem(
-          "五角星",
-          Wrap(
-            children: <Widget>[
-              FiveStarWidget(50),
-              FiveStarWidget(50, rotateAngle: 30),
-              FiveStarWidget(50, rotateAngle: 60, color: Colors.blue),
-              FiveStarWidget(50, rotateAngle: 90, color: Colors.blue),
-              FiveStarWidget(50, rotateAngle: 120),
-              FiveStarWidget(50, rotateAngle: 140)
-            ],
-          )));
+    items.add(_buildItem(
+        "五角星",
+        const Wrap(
+          children: <Widget>[
+            FiveStarWidget(50),
+            FiveStarWidget(50, rotateAngle: 30),
+            FiveStarWidget(50, rotateAngle: 60, color: Colors.blue),
+            FiveStarWidget(50, rotateAngle: 90, color: Colors.blue),
+            FiveStarWidget(50, rotateAngle: 120),
+            FiveStarWidget(50, rotateAngle: 140)
+          ],
+        )));
   }
 
   void initArcWidgets() {
-    items
-      ..add(_buildItem(
-          "圆弧、圆",
-          Wrap(
-            children: <Widget>[
-              ArcWidget(50,
-                  startAngle: 0.0,
-                  sweepAngle: 300.0,
-                  color: Colors.red,
-                  strokeWidth: 15,
-                  borderColor: Colors.grey[200]!),
-              ArcWidget(100,
-                  startAngle: 0.0,
-                  sweepAngle: 90.0,
-                  color: Colors.red,
-                  strokeWidth: 15,
-                  borderColor: Colors.grey[200]!),
-              ArcWidget(200,
-                  startAngle: 270.0,
-                  sweepAngle: 90.0,
-                  color: Colors.red,
-                  strokeWidth: 15,
-                  borderColor: Colors.grey[200]!),
-              ArcWidget(300,
-                  startAngle: 0.0,
-                  sweepAngle: 360.0,
-                  color: Colors.red,
-                  strokeWidth: 10),
-              ArcWidget(50, color: Colors.red),
-              ArcWidget(50, startAngle: 0.0, sweepAngle: 90.0),
-              ArcWidget(50, startAngle: 0.0, sweepAngle: 180.0),
-              ArcWidget(50, startAngle: 0.0, sweepAngle: 270.0),
-            ],
-          )));
+    items.add(_buildItem(
+        "圆弧、圆",
+        Wrap(
+          children: <Widget>[
+            ArcWidget(50,
+                startAngle: 0.0,
+                sweepAngle: 300.0,
+                color: Colors.red,
+                strokeWidth: 15,
+                borderColor: Colors.grey[200]!),
+            ArcWidget(100,
+                startAngle: 0.0,
+                sweepAngle: 90.0,
+                color: Colors.red,
+                strokeWidth: 15,
+                borderColor: Colors.grey[200]!),
+            ArcWidget(200,
+                startAngle: 270.0,
+                sweepAngle: 90.0,
+                color: Colors.red,
+                strokeWidth: 15,
+                borderColor: Colors.grey[200]!),
+            const ArcWidget(300,
+                startAngle: 0.0,
+                sweepAngle: 360.0,
+                color: Colors.red,
+                strokeWidth: 10),
+            const ArcWidget(50, color: Colors.red),
+            const ArcWidget(50, startAngle: 0.0, sweepAngle: 90.0),
+            const ArcWidget(50, startAngle: 0.0, sweepAngle: 180.0),
+            const ArcWidget(50, startAngle: 0.0, sweepAngle: 270.0),
+          ],
+        )));
   }
 
   Widget _buildItem(String title, Widget widget) =>
       ListTile(title: Text(title), onTap: () => gotoPage(widget, title));
 
-  void gotoPage(Widget widget, String title) => Navigator.push(
-      context,
-      MaterialPageRoute(
-          builder: (ctx) =>
-              Scaffold(appBar: AppBar(title: Text(title)), body: widget)));
+  void gotoPage(Widget widget, String title) =>
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (ctx) =>
+                  Scaffold(appBar: AppBar(title: Text(title)), body: widget)));
 }

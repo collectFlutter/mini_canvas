@@ -1,11 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+
+// ignore: depend_on_referenced_packages
 import 'package:mini_canvas/mini_canvas.dart';
 
 class TimeClockPage extends StatefulWidget {
+  const TimeClockPage({super.key});
+
   @override
-  _TimeClockPageState createState() => _TimeClockPageState();
+  State createState() => _TimeClockPageState();
 }
 
 class _TimeClockPageState extends State<TimeClockPage> {
@@ -16,7 +20,7 @@ class _TimeClockPageState extends State<TimeClockPage> {
   void initState() {
     super.initState();
     datetime = DateTime.now();
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       datetime = DateTime.now();
       if (mounted) setState(() {});
     });
